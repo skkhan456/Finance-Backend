@@ -123,21 +123,6 @@ GET /api/records?type=expense&category=food&startDate=2024-01-01&endDate=2024-12
 | GET    | `/api/dashboard/monthly`  | Monthly analysis   |
 
 
-# 📘 API Documentation (Swagger)
-
-Swagger UI is available at:
-
-http://localhost:4000/api-docs
-
-### ✨ Swagger Features:
-
-* View all APIs
-* Try endpoints directly
-* Add JWT token
-* See request/response formats
-
----
-
 # 🧪 Example Request (Postman)
 
 ### ➤ Create Record
