@@ -19,7 +19,6 @@ It supports authentication, role-based access control, record management, and an
 * Express.js
 * MongoDB + Mongoose
 * JWT (JSON Web Tokens)
-* Swagger UI (API Docs)
 
 # 📂 Project Structure
 
