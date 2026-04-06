@@ -23,25 +23,25 @@ It supports authentication, role-based access control, record management, and an
 
 # 📂 Project Structure
 
-Backend Project
+📁 Backend Project
 │
-├── config/
+├── 📁 config
 │   └── db.js
 │
-├── controllers/
+├── 📁 controllers
 │   ├── dashboard.controller.js
 │   ├── record.controller.js
 │   └── user.controller.js
 │
-├── middlewares/
+├── 📁 middlewares
 │   ├── isAuth.js
 │   └── authorize.js
 │
-├── models/
+├── 📁 models
 │   ├── records.js
 │   └── user.js
 │
-├── routes/
+├── 📁 routes
 │   ├── user.dashboard.js
 │   ├── user.record.js
 │   └── user.router.js
@@ -50,7 +50,6 @@ Backend Project
 ├── createAdmin.js
 ├── node.js   (main server file)
 ├── package.json
-
 
 # ⚙️ Installation & Setup
 
@@ -170,6 +169,124 @@ All APIs return standard responses:
 | Analyst | Dashboard access |
 | User    | Limited access   |
 
+# 📘 API Documentation
+
+This section describes all available APIs and how to use them.
+
+# 🔐 Authentication
+Most APIs require authentication using JWT.
+### Header:
+Authorization: Bearer YOUR_TOKEN
+
+# 👤 USER APIs
+
+## 1. Signup
+**Endpoint:**
+
+POST /api/auth/signup
+**Body:**
+
+json
+{
+  "name": "Salman",
+  "email": "salman@gmail.com",
+  "password": "123456"
+}
+
+**Response:**
+json
+{
+  "message": "User registered successfully"
+}
+
+## 2. Login
+**Endpoint:**
+POST /api/auth/login
+
+**Body:**
+json
+{
+  "email": "salman@gmail.com",
+  "password": "123456"
+}
+
+**Response:**
+json
+{
+  "token": "JWT_TOKEN"
+}
+
+## 3. Get All Users (Admin)
+**Endpoint:**
+
+GET /api/users
+
+## 4. Update User Role
+**Endpoint:**
+PATCH /api/users/:id/role
+
+**Body:**
+json
+{
+  "role": "admin"
+}
+
+## 5. Update User Status
+
+**Endpoint:**
+PATCH /api/users/:id/status
+
+## 7. Soft Delete User
+**Endpoint:**
+DELETE /api/users/:id
+
+# 📊 RECORD APIs
+
+## 1. Create Record
+**Endpoint:**
+
+POST /api/records
+**Body:**
+json
+{
+  "amount": 500,
+  "type": "expense",
+  "category": "food"
+}
+
+## 2. Get All Records
+
+**Endpoint:**
+GET /api/records
+
+## 🔍 Filters
+GET /api/records?type=expense&category=food&startDate=2024-01-01&endDate=2024-12-31
+
+## 3. Get Record by ID
+GET /api/records/:id
+
+## 4. Update Record
+PUT /api/records/:id
+
+## 5. Delete Record
+DELETE /api/records/:id
+
+# 📈 DASHBOARD APIs
+## 1. Summary
+GET /api/dashboard/summary
+
+## 2. Category Breakdown
+GET /api/dashboard/category
+
+## 3. Monthly Analysis
+GET /api/dashboard/monthly
+
+# ⚠️ Error Format
+
+{
+  "success": false,
+  "message": "Something went wrong"
+}
 
 # 👨‍💻 Author
 **Salman **
