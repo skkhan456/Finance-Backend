@@ -71,11 +71,54 @@ nodemon node.js
 http://localhost:4000/
 
 # 🔐 Authentication
-
 Most routes require a JWT token.
 
 ### 📌 Add token in headers:
 Authorization: Bearer YOUR_TOKEN
+
+# 👑 Create Admin User
+
+This project includes a script to create an initial **Admin user**.
+
+---
+
+## 📌 Why needed?
+
+* Admin role is required to:
+
+  * Manage users
+  * Access all records
+  * Use dashboard APIs
+
+## ⚙️ How to create Admin
+Run the following command:
+
+node createAdmin.js
+
+## 📥 What it does
+
+* Creates a default admin user in the database
+* Assigns role = `admin`
+
+## 📌 Example Admin Credentials
+Email: admin@gmail.com
+Password: admin123
+*(You can modify these inside `createAdmin.js` file)*
+
+## ⚠️ Important Notes
+
+* Run this script **only once**
+* If admin already exists, it should not create duplicate
+* Make sure MongoDB is connected before running
+
+## 🔐 After Creating Admin
+
+1. Login using admin credentials:
+POST /api/auth/login
+
+3. Use the token to access protected routes:
+Authorization: Bearer TOKEN
+
 
 # 👤 User APIs
 
